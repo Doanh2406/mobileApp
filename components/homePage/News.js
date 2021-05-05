@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image,Text, View, ScrollView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 // import image_1 from '../../assets/dhdn.png';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 
 export function News(props){
     // const [News, setNews] = useState([title: ])
     const {item} = props;
         return (
-            <ScrollView>
+            <TouchableOpacity activeOpacity={0.8}>
                  <View style = {styles.container}>
                         <View style={styles.bodyMain}>
                             <View style={styles.contentBody}>
@@ -27,7 +28,7 @@ export function News(props){
                         
                     </View>
             </View>
-            </ScrollView>
+            </TouchableOpacity>
         )
     
 }

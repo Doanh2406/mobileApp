@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {View,Image,Text, StyleSheet, ScrollView} from 'react-native';
-
+import { Icon } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import News from './News';
 
 export default class Home extends Component {
@@ -32,6 +33,7 @@ export default class Home extends Component {
    render() {
        return (
            <ScrollView style={styles.container}>
+               <TouchableOpacity>
                <View style= {styles.view0}>
                     <Text style = {styles.textContent}> Đại học Đà Nẵng xét tuyển đại học hệ chính quy năm 2021 </Text>
                 </View>
@@ -50,8 +52,16 @@ export default class Home extends Component {
                     </Text>
                     <View style =  {styles.lineStyle} />
                 </View>
+                </TouchableOpacity>
                 <View style = {styles.newContent}>
-                    <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text></View>
+                    <Icon
+                    style={styles.iconNews}
+                    name='newspaper'
+                    color='#3A6CA9'
+                    type='ionicon'
+                    />
+                    <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
+                </View>
                 {this.state.news.map(item => (
                     <News key={ item.id} item ={item} />
   ))}
@@ -79,8 +89,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     textEvent:{
+        marginLeft:10,
         marginBottom:20,
-        color:'#4169e1',
+        color:'#3A6CA9',
         fontSize: 20,
         fontWeight: 'bold'
     },
@@ -92,6 +103,13 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius:10,
         borderBottomRightRadius:10
     },
+    newContent:{
+        flex:1,
+        flexDirection: 'row'
+
+    },
+    iconNews:{
+    }
     
     
 })

@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import LoginForm from './components/loginForm';
-import Articles from './components/articles';
-import BG from './assets/bg1.png';
+// import Articles from './components/articles';
+// import BG from './assets/bg1.png';
 import Loading from './components/loading';
 import Home from'./components/homePage/Home';
 import { NavigationContainer } from '@react-navigation/native';
@@ -90,7 +90,7 @@ export default class App extends Component {
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'blue',
+          activeTintColor: '#3A6CA9',
           inactiveTintColor: 'gray',
         }}
       >
