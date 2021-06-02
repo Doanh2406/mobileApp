@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import News from './News';
 
+
 export default class Home extends Component {
    constructor(props){
        super(props);

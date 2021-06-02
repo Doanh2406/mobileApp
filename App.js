@@ -10,7 +10,8 @@ import Home from'./components/homePage/Home';
 import TimeTable from './components/pageTimeTable/TimeTable';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Navbar from'./components/Navbar';
+import Setting from'./components/homePage/Setting';
+import Navbar from './components/Navbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 function SettingsScreen() {
@@ -99,7 +100,7 @@ export default class App extends Component {
             <Tab.Screen name="News" component={SettingsScreen} />
             <Tab.Screen name="Calendar" component={TimeTable} />
             <Tab.Screen name="Notifications" component={SettingsScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Settings" component={Setting} />
           </Tab.Navigator>
     </NavigationContainer>
         )
