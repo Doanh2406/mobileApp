@@ -7,6 +7,7 @@ import LoginForm from './components/loginForm';
 // import BG from './assets/bg1.png';
 import Loading from './components/loading';
 import Home from'./components/homePage/Home';
+import TimeTable from './components/pageTimeTable/TimeTable';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Navbar from'./components/Navbar';
@@ -96,7 +97,7 @@ export default class App extends Component {
       >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="News" component={SettingsScreen} />
-            <Tab.Screen name="Calendar" component={SettingsScreen} />
+            <Tab.Screen name="Calendar" component={TimeTable} />
             <Tab.Screen name="Notifications" component={SettingsScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>

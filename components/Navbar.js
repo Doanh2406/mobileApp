@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     imageLogo:{
-        marginTop:20,
+        marginTop:32,
         marginLeft:10,
         flex:3
 
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         color: "#999999",
         fontSize: 13,
         // textAlign:'right'
-        paddingTop:104
+        paddingTop:115
 
     },
     lineStyle:{
