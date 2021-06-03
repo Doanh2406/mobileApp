@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import LoginForm from './components/loginForm';
 // import Articles from './components/articles';
@@ -13,6 +12,7 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Setting from'./components/homePage/Setting';
 import Navbar from './components/Navbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import firebase from './firebase';
 
 function SettingsScreen() {
   return (
@@ -27,16 +27,6 @@ const Tab = createBottomTabNavigator();
 export default class App extends Component {
   state = { loggedIn : false}
   componentDidMount(){
-    var firebaseConfig = {
-      apiKey: "AIzaSyBoHu4GKvbIG6gZpa2OHsxVmHikgpsNBGM",
-      authDomain: "reactnative-7.firebaseapp.com",
-      projectId: "reactnative-7",
-      storageBucket: "reactnative-7.appspot.com",
-      messagingSenderId: "58821640843",
-      appId: "1:58821640843:web:e05dc6471d8aa573694a8e",
-      measurementId: "G-C4CGCXS18M"
-    };
-  firebase.initializeApp(firebaseConfig);
      firebase.app();
     firebase.auth().onAuthStateChanged(user => {
       if(user){

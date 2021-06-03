@@ -5,9 +5,25 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-export function News(props){
-    // const [News, setNews] = useState([title: ])
-    const {item} = props;
+export default class News extends Component {
+    state = {
+        News :[],
+    };
+    readNewsRef = () => {
+        let news = [];
+        HomeRef.onSnapshot((querySnapshot) =>{
+            querySnapshot.forEach((doc) =>{
+                news.push({id: doc.id , data : doc.data()});
+            });
+            this.setState({News : news});
+        })
+    }
+    componentDidMount(){
+       this.readNewsRef();
+    }
+
+    render (){
+
         return (
             <TouchableOpacity activeOpacity={0.8}>
                  <View style = {styles.container}>
@@ -30,6 +46,7 @@ export function News(props){
             </View>
             </TouchableOpacity>
         )
+    }
     
 }
 
