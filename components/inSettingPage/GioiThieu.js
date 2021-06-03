@@ -11,12 +11,21 @@ export function GioiThieu(props){
         return (
             <>
               <View style={{flexDirection:'row', marginTop: 20}}>
-                <Image
-                style={{width: 150, height: 200,marginLeft:5}}
-                source={{
-                  uri: 'http://www.udn.vn/app/webroot/upload/images/File%202.jpg',
-                }}
-                />
+                <View style={{flexDirection:'column'}}>
+                  <Image
+                  style={{width: 150, height: 200,marginLeft:5}}
+                  source={{
+                    uri: 'http://www.udn.vn/app/webroot/upload/images/File%202.jpg',
+                  }}
+                  
+                  />
+                  <Text style={{color:'red',fontWeight:'bold',fontSize:12}}>
+                    PGS.TS. NGUYỄN NGỌC VŨ
+                  </Text>
+                  <Text style={{color:'red',fontWeight:'bold',fontSize:12,alignSelf:'center'}}>
+                      Giám đốc ĐHĐN
+                  </Text>
+                </View>
               <Text style={{marginLeft:10,marginRight:5}}>
                  - Đại học Đà Nẵng (ĐHĐN) được thành lập theo Nghị định số 32/CP ngày 04/4/1994 của Chính phủ. Đến nay ĐHĐN đã trải qua hơn 25 năm xây dựng và phát triển kế thừa truyền thống gần 45 năm đào tạo, nghiên cứu khoa học của các trường thành viên (1975-2020).
 
