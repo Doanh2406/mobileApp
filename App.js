@@ -12,7 +12,12 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Setting from'./components/homePage/Setting';
 import Navbar from './components/Navbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import firebase from './firebase';
+
+import AppNavigator from './components/homePage/AppNavigator'
+
+
 
 function SettingsScreen() {
   return (
@@ -90,7 +95,7 @@ export default class App extends Component {
             <Tab.Screen name="News" component={SettingsScreen} />
             <Tab.Screen name="Calendar" component={TimeTable} />
             <Tab.Screen name="Notifications" component={SettingsScreen} />
-            <Tab.Screen name="Settings" component={Setting} />
+            <Tab.Screen name="Settings" component={AppNavigator}  />
           </Tab.Navigator>
     </NavigationContainer>
         )

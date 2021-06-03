@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Text, Searchbar,Button,Card, Divider } from 'react-native-paper';
 import { StyleSheet, View,Image } from 'react-native';
 import Avar from '../../assets/avar.png'
+//test
 
 
-const Setting = () => {
+const Setting = ({navigation}) => {
+    
     const [searchQuery, setSearchQuery] = React.useState('');
 
     const onChangeSearch = query => setSearchQuery(query);
@@ -70,15 +72,17 @@ const Setting = () => {
         </Card>
         <Card style={styles.card}>
             <Card.Actions>
-                <Button icon="calendar-alert" mode="text" onPress={() => console.log('Pressed')}>
+                <Button icon="calendar-alert" mode="text" onPress={() =>
+                     navigation.navigate('LichThi')}>
                         Lich thi
                 </Button>
             </Card.Actions>
         </Card>
         <Card style={styles.card}>
             <Card.Actions>
-                <Button icon="account-search" mode="text" onPress={() => console.log('Pressed')}>
-                        Gioi thieu
+                <Button icon="account-search" mode="text" onPress={() =>
+                     navigation.navigate('GioiThieu')}>
+                         Gioi Thieu
                 </Button>
             </Card.Actions>
         </Card>
