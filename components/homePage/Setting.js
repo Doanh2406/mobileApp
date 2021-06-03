@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, Searchbar,Button,Card, Divider } from 'react-native-paper';
 import { StyleSheet, View,Image } from 'react-native';
 import Avar from '../../assets/avar.png'
+//test
 
 
 const Setting = ({navigation}) => {
