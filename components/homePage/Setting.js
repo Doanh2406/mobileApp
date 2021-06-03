@@ -80,8 +80,9 @@ const Setting = ({navigation}) => {
         </Card>
         <Card style={styles.card}>
             <Card.Actions>
-                <Button icon="account-search" mode="text" onPress={() => console.log('Pressed')}>
-                        Gioi thieu
+                <Button icon="account-search" mode="text" onPress={() =>
+                     navigation.navigate('GioiThieu')}>
+                         Gioi Thieu
                 </Button>
             </Card.Actions>
         </Card>
