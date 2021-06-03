@@ -39,6 +39,7 @@ class EmailAndPassword extends Component {
                  />
                 <TextInput 
                 placeholder="password" 
+                type="password"
                 style={styles.input} 
                 value={this.state.password}
                 onChangeText = {password => this.setState({password})}/>

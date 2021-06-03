@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import {View,Image,Text, StyleSheet, ScrollView} from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { HomeRef } from "../../firebase";
+import { HomeRef,NotiRef } from "../../firebase";
 import News from './News';
-
+import Noti from '../pageNoti/Noti';
 
 export default class Home extends Component {
     state = {
         News :[],
+        Noti: [],
     };
     readNewsRef = () => {
         let news = [];
@@ -19,8 +20,18 @@ export default class Home extends Component {
             this.setState({News : news});
         })
     }
+    readNotiRef =() =>{
+        let notis = [];
+        NotiRef.onSnapshot((querySnapshot) =>{
+            querySnapshot.forEach((doc) =>{
+                notis.push({id: doc.id , data : doc.data()});
+            });
+            this.setState({Noti : notis});
+        })
+    }
     componentDidMount(){
        this.readNewsRef();
+       this.readNotiRef();
     }
 
 //    constructor(props){
@@ -72,18 +83,36 @@ export default class Home extends Component {
                     <View style =  {styles.lineStyle} />
                 </View>
                 </TouchableOpacity>
-                <View style = {styles.newContent}>
-                    <Icon
-                    style={styles.iconNews}
-                    name='newspaper'
-                    color='#3A6CA9'
-                    type='ionicon'
-                    />
-                    <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
+                <View>
+                    <View style = {styles.newContent}>
+                            <Icon
+                            style={styles.iconNews}
+                            name='newspaper'
+                            color='#3A6CA9'
+                            type='ionicon'
+                            />
+                            <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
+                        </View>
+                        {this.state.News.slice(0,4).map(item => (
+                            <News key={ item.id} item ={item.data} />
+                        ))}
+                
                 </View>
-                {this.state.News.slice(0,2).map(item => (
-                    <News key={ item.id} item ={item.data} />
-  ))}
+                <View style =  {styles.lineStyle} />
+                <View>
+                    <View style = {styles.newContent}>
+                        <Icon
+                        style={styles.iconNews}
+                        name='notifications'
+                        color='#3A6CA9'
+                        type='ionicon'
+                        />
+                        <Text style={styles.textEvent}>Thông Báo</Text>
+                    </View>
+                    {this.state.Noti.slice(0,4).map(item => (
+                        <Noti key={ item.id} item ={item.data} />
+                    ))}
+                </View>
             </ScrollView>
        )
    }
@@ -128,7 +157,12 @@ const styles = StyleSheet.create({
 
     },
     iconNews:{
-    }
+    },
+    lineStyle:{
+        borderWidth: 1,
+        borderColor:'#397CCF',
+        margin:10,
+   }
     
     
 })

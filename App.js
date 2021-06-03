@@ -12,10 +12,8 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Setting from'./components/homePage/Setting';
 import Navbar from './components/Navbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import AppNavigator from './components/homePage/AppNavigator';
 import firebase from './firebase';
-
-import AppNavigator from './components/homePage/AppNavigator'
 
 
 
