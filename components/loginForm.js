@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import EmailAndPassword from './EmailAndPassword';
-import Logo from './logo';
+// import Logo from './logo';
 
 const loginForm = () => {
     return (
@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
     container:{
         flex : 1,
     },
-    logoContainer: {
-        flex :1,
-        alignItems: 'center',
-        justifyContent : 'center',
-        paddingBottom: 100
-    },
+    // logoContainer: {
+    //     flex :1,
+    //     alignItems: 'center',
+    //     justifyContent : 'center',
+    //     paddingBottom: 100
+    // },
     emailAndPassContainer:{
         flex: 1,
 
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
     text:{
         color: "black",
         fontSize: 26,
+        flex :1,
+        alignItems: 'center',
+        justifyContent : 'center',
 
     }
 
