@@ -14,6 +14,8 @@ import Navbar from './components/Navbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppNavigator from './components/homePage/AppNavigator';
 import firebase from './firebase';
+import NewsHome from './components/newPage/NewsHome';
+import NotiHome from './components/pageNoti/NotiHome';
 
 
 
@@ -90,9 +92,9 @@ export default class App extends Component {
         }}
       >
             <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="News" component={SettingsScreen} />
+            <Tab.Screen name="News" component={NewsHome} />
             <Tab.Screen name="Calendar" component={TimeTable} />
-            <Tab.Screen name="Notifications" component={SettingsScreen} />
+            <Tab.Screen name="Notifications" component={NotiHome} />
             <Tab.Screen name="Settings" component={AppNavigator}  />
           </Tab.Navigator>
     </NavigationContainer>
