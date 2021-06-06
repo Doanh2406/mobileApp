@@ -59,15 +59,17 @@ const Setting = ({ navigation }) => {
         </Card>
         <Card style={styles.card}>
           <Card.Actions>
-            <Button icon="calendar-check" mode="text" onPress={() => console.log('Pressed')}>
-              Ket Qua
+            <Button icon="calendar-check" mode="text" onPress={() =>
+              navigation.navigate('KetQua')}>
+              Kết Quả
                 </Button>
           </Card.Actions>
         </Card>
         <Card style={styles.card}>
           <Card.Actions>
-            <Button icon="cash-register" mode="text" onPress={() => console.log('Pressed')}>
-              Hoc Phi
+            <Button icon="cash-register" mode="text"  onPress={() =>
+              navigation.navigate('HocPhi')}>
+              Học Phí
                 </Button>
           </Card.Actions>
         </Card>
@@ -75,7 +77,7 @@ const Setting = ({ navigation }) => {
           <Card.Actions>
             <Button icon="calendar-alert" mode="text" onPress={() =>
               navigation.navigate('LichThi')}>
-              Lich thi
+              Lịch thi
                 </Button>
           </Card.Actions>
         </Card>
@@ -83,7 +85,7 @@ const Setting = ({ navigation }) => {
           <Card.Actions>
             <Button icon="account-search" mode="text" onPress={() =>
               navigation.navigate('GioiThieu')}>
-              Gioi Thieu
+              Giới thiệu
                 </Button>
           </Card.Actions>
         </Card>
@@ -107,7 +109,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginLeft: 31
+    alignItems: 'center',
+    
+    justifyContent: 'center'
   },
   card: {
     marginTop: 10,

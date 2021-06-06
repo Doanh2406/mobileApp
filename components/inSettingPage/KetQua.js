@@ -5,7 +5,7 @@ import {DataAtd} from './DataAtd'
 
 
 
-export function DKTC() {
+export function KetQua() {
 
   const [selectedValue, setSelectedValue] = React.useState();
 
@@ -52,4 +52,4 @@ export function DKTC() {
 
 }
 
-export default DKTC;
+export default KetQua;
