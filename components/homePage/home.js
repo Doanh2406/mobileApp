@@ -2,13 +2,15 @@ import React, {Component} from "react";
 import {View,Image,Text, StyleSheet, ScrollView} from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { HomeRef } from "../../firebase";
+import { HomeRef,NotiRef } from "../../firebase";
 import News from './News';
-
+import Noti from '../pageNoti/Noti';
+import SlideShow from './SlideShow';
 
 export default class Home extends Component {
     state = {
         News :[],
+        Noti: [],
     };
     readNewsRef = () => {
         let news = [];
@@ -19,8 +21,18 @@ export default class Home extends Component {
             this.setState({News : news});
         })
     }
+    readNotiRef =() =>{
+        let notis = [];
+        NotiRef.onSnapshot((querySnapshot) =>{
+            querySnapshot.forEach((doc) =>{
+                notis.push({id: doc.id , data : doc.data()});
+            });
+            this.setState({Noti : notis});
+        })
+    }
     componentDidMount(){
        this.readNewsRef();
+       this.readNotiRef();
     }
 
 //    constructor(props){
@@ -51,39 +63,45 @@ export default class Home extends Component {
    render() {
        return (
            <ScrollView style={styles.container}>
-               <TouchableOpacity>
-               <View style= {styles.view0}>
-                    <Text style = {styles.textContent}> Đại học Đà Nẵng xét tuyển đại học hệ chính quy năm 2021 </Text>
+               <View style={styles.showslide} >
+                    <SlideShow/>
                 </View>
-                <View style = {styles.view1} >
-                    <Image source={{uri:'https://scontent.fdad3-3.fna.fbcdn.net/v/t1.6435-9/158579574_5128381190537228_3595236494514164582_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=e3f864&_nc_ohc=PT2D8HLQkF8AX-5Z2Lh&_nc_ht=scontent.fdad3-3.fna&oh=e6fa3bc51d8b4c7f619a89430828c8f4&oe=60A6D0CB'}} style = {{ height :200, width:390}}></Image>
+                <View>
+                   
+                    <View style = {styles.newContent}>
+                            <Icon
+                            style={styles.iconNews}
+                            name='newspaper'
+                            color='#3A6CA9'
+                            type='ionicon'
+                            />
+                            <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
+                        </View>
+                        <View style = {styles.mapnew}>
+                        {this.state.News.slice(0,5).map(item => (
+                            <News key={ item.id} item ={item.data} />
+                        ))}
+                        </View>
+                
+                </View>
+                <View style =  {styles.lineStyle} />
+                <View>
+                    <View style = {styles.newContent}>
+                        <Icon
+                        style={styles.iconNews}
+                        name='notifications'
+                        color='#3A6CA9'
+                        type='ionicon'
+                        />
+                        <Text style={styles.textEvent}>Thông Báo</Text>
                     </View>
-                    <View>
-                    <Text numberOfLines={4}>
-                    THÔNG BÁO TUYỂN SINH VÀO ĐẠI HỌC HỆ CHÍNH QUY THEO PHƯƠNG THỨC XÉT HỌC BẠ THPT NĂM 2021 
-                    </Text>
-                    <Text numberOfLines={3}>
-                    Đại học Đà Nẵng thông báo tuyển sinh đào tạo trình 
-                    độ đại học hệ chính quy vào các trường đại học thành viên năm 2021, theo phương thức xét học bạ THPT như sau:
-                    </Text>
-                    <Text>
-                                             🔸 … Xem thêm
-                    </Text>
-                    <View style =  {styles.lineStyle} />
+                    <View style = {styles.mapnew}>
+
+                    {this.state.Noti.slice(0,5).map(item => (
+                        <Noti key={ item.id} item ={item.data} />
+                    ))}
+                    </View>
                 </View>
-                </TouchableOpacity>
-                <View style = {styles.newContent}>
-                    <Icon
-                    style={styles.iconNews}
-                    name='newspaper'
-                    color='#3A6CA9'
-                    type='ionicon'
-                    />
-                    <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
-                </View>
-                {this.state.News.slice(0,2).map(item => (
-                    <News key={ item.id} item ={item.data} />
-  ))}
             </ScrollView>
        )
    }
@@ -91,17 +109,8 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container:{
      flex:1,
-     marginLeft: 10,
      
     },  
-     view0:{
-        marginTop: 10,
-        marginBottom:10
-    },
-    view1:{
-        marginTop:10,
-        marginBottom: 10
-    },
     textContent:{
         color: "#000000",
         fontSize: 20,
@@ -109,7 +118,7 @@ const styles = StyleSheet.create({
     },
     textEvent:{
         marginLeft:10,
-        marginBottom:20,
+        marginBottom:0,
         color:'#3A6CA9',
         fontSize: 20,
         fontWeight: 'bold'
@@ -124,11 +133,25 @@ const styles = StyleSheet.create({
     },
     newContent:{
         flex:1,
-        flexDirection: 'row'
-
+        flexDirection: 'row',
+        marginLeft:10,
     },
     iconNews:{
-    }
+    },
+    lineStyle:{
+        borderWidth: 1,
+        borderColor:'#397CCF',
+        margin:20,
+        marginTop:-10,
+   },
+   mapnew:{
+       margin:10
+   },
+   showslide:{
+       margin:10,
+       marginTop:50,
+
+   }
     
     
 })

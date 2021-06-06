@@ -2,26 +2,26 @@ import React, {Component} from "react";
 import {View,Image,Text, StyleSheet, ScrollView} from 'react-native';
 import { Icon } from 'react-native-elements';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
-import { HomeRef,NotiRef } from "../../firebase";
-import News from '../homePage/News';
+import { NotiRef } from "../../firebase";
+import Noti from '../pageNoti/Noti';
 
-export default class NewsHome extends Component {
+export default class NotiHome extends Component {
     state = {
-        News :[],
         Noti: [],
     };
-    readNewsRef = () => {
-        let news = [];
-        HomeRef.onSnapshot((querySnapshot) =>{
+    readNotiRef =() =>{
+        let notis = [];
+        NotiRef.onSnapshot((querySnapshot) =>{
             querySnapshot.forEach((doc) =>{
-                news.push({id: doc.id , data : doc.data()});
+                notis.push({id: doc.id , data : doc.data()});
             });
-            this.setState({News : news});
+            this.setState({Noti : notis});
         })
     }
    
+   
     componentDidMount(){
-       this.readNewsRef();
+       this.readNotiRef();
     }
 
 
@@ -32,14 +32,14 @@ export default class NewsHome extends Component {
                     <View style = {styles.newContent}>
                             <Icon
                             style={styles.iconNews}
-                            name='newspaper'
+                            name='notifications'
                             color='#3A6CA9'
                             type='ionicon'
                             />
-                            <Text style={styles.textEvent}>Tin Tức - Sự Kiện</Text>
+                            <Text style={styles.textEvent}>Thông Báo Chung</Text>
                         </View>
-                        {this.state.News.map(item => (
-                            <News key={ item.id} item ={item.data} />
+                        {this.state.Noti.map(item => (
+                            <Noti key={ item.id} item ={item.data} />
                         ))}
                 
                 </View>
