@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
    },
    showslide:{
        margin:10,
-       marginTop:50,
+       marginTop:10,
 
    }
     

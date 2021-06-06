@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-export function LichThi(props){
+export function New(props){
     const {item} = props;
         return (
            <Text>cc</Text>
@@ -13,5 +13,5 @@ export function LichThi(props){
     
 }
 
-export default LichThi;
+export default New;
 

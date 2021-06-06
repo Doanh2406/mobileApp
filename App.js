@@ -16,6 +16,7 @@ import AppNavigator from './components/homePage/AppNavigator';
 import firebase from './firebase';
 import NewsHome from './components/newPage/NewsHome';
 import NotiHome from './components/pageNoti/NotiHome';
+import NewNavigator from './components/newPage/NewNavigator';
 
 
 
@@ -92,7 +93,7 @@ export default class App extends Component {
         }}
       >
             <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="News" component={NewsHome} />
+            <Tab.Screen name="News" component={NewNavigator} />
             <Tab.Screen name="Calendar" component={TimeTable} />
             <Tab.Screen name="Notifications" component={NotiHome} />
             <Tab.Screen name="Settings" component={AppNavigator}  />
