@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image,Text, View, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+// import { useNavigation } from '@react-navigation/native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
 // import image_1 from '../../assets/dhdn.png';
 
 
 
 export function News(props){
-    // const [News, setNews] = useState([title: ])
     const {item} = props;
+
         return (
-            <TouchableOpacity activeOpacity={0.8}>
-                 <View style = {styles.container}>
+            <TouchableOpacity activeOpacity={0.8} onPress={() =>
+                navigation.navigate('New')} >
+                 <View style = {styles.container} >
                         <View style={styles.bodyMain}>
                             <View style={styles.contentBody}>
                                 <Image source={{uri:item.image}} 

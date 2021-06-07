@@ -13,6 +13,7 @@ export default class Index extends Component {
     HocKyRef.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         news.push({ id: doc.id, data: doc.data() });
+        console.log(id);
       });
       this.setState({ HocKy: news });
     })
