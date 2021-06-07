@@ -7,7 +7,7 @@ import { Icon } from "react-native-elements";
 // import { createStackNavigator } from '@react-navigation/stack';
 // import image_1 from '../../assets/dhdn.png';
 
-export function New({ route }) {
+export function Notication({ route }) {
   const { item } = route.params;
 
   return (
@@ -28,22 +28,13 @@ export function New({ route }) {
           </View>
         </View>
 
-        <Text style={styles.icontentStyle}>{item.icontent}</Text>
-        <View>
-          <Image
-            source={{ uri: item.image }}
-            style={{ height: 250, width: 400 }}
-          ></Image>
-        </View>
-        <View style={styles.bodyMain}>
-          <Text style={styles.mcontentStyle}>{item.mcontent}</Text>
-        </View>
+        {/* <Text style={styles.icontentStyle}>{item.icontent}</Text> */}
       </View>
     </ScrollView>
   );
 }
 
-export default New;
+export default Notication;
 
 const styles = StyleSheet.create({
   container: {
@@ -75,9 +66,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   mcontentStyle: {
-    color: "#080808",
+    color: "#5B5151",
     fontSize: 17,
-    opacity: 0.7,
+    fontWeight: "bold",
     textAlign: "justify",
   },
 });

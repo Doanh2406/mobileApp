@@ -11,6 +11,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function News(props){
     const {item} = props;
+
         return (
             <TouchableOpacity activeOpacity={0.8} onPress={() =>
                 navigation.navigate('New')} >
