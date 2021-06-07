@@ -42,13 +42,7 @@ const Setting = ({ navigation }) => {
 
 
       <View style={styles.menu}>
-        <Card style={styles.card}>
-          <Card.Actions>
-            <Button icon="calendar" mode="text" onPress={() => console.log('Pressed')}>
-              TKB
-                </Button>
-          </Card.Actions>
-        </Card>
+        
         <Card style={styles.card}>
           <Card.Actions>
             <Button icon="account-details" mode="text" onPress={() =>

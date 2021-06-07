@@ -50,6 +50,7 @@ import Slideshow from 'react-native-image-slider-show';
                   return (
 <>
                   <Slideshow 
+                      
                       dataSource={this.state.dataSource}
                       height={200}
                       position={this.state.position}

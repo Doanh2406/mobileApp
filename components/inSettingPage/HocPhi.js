@@ -40,7 +40,7 @@ export function HocPhi() {
               <DataTable.Title
                 sortDirection='descending'
               >
-                Sort
+                Môn học
           </DataTable.Title>
               <DataTable.Title numeric>Số tín chỉ</DataTable.Title>
 
