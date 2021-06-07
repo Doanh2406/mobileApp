@@ -61,6 +61,7 @@ export default class Home extends Component {
 //        }
 //    }
    render() {
+      
        return (
            <ScrollView style={styles.container}>
                <View style={styles.showslide} >

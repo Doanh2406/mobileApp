@@ -5,7 +5,7 @@ import Setting from './Setting'
 import LichThi from '../inSettingPage/LichThi'
 import GioiThieu from "../inSettingPage/GioiThieu";
 import DKTC from '../inSettingPage/DKTC'
-import HocPhi from '../inSettingPage/HocPhi'
+import IndexHocPhi from '../inSettingPage/IndexHocPhi'
 import KetQua from "../inSettingPage/KetQua";
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,7 +16,7 @@ const HomeNavigator = () => (
     <Screen name="LichThi" component={LichThi} />
     <Screen name="GioiThieu" component={GioiThieu} />
     <Screen name="DKTC" component={DKTC} />
-    <Screen name="HocPhi" component={HocPhi}/>
+    <Screen name="HocPhi" component={IndexHocPhi}/>
     <Screen name="KetQua" component={KetQua}/>
   </Navigator>
 );

@@ -15,4 +15,5 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 export const HomeRef = db.collection("HOME");
 export const NotiRef = db.collection("NOTI");
+export const HocKyRef =db.collection("HocKy")
 export default firebase;
