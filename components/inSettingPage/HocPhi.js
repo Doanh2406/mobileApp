@@ -1,22 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component ,useEffect} from 'react'
 import { Picker, Text, View } from 'react-native';
 import { DataTable, Provider } from 'react-native-paper';
-
+import { set } from 'react-native-reanimated';
+import {DataAtd} from './DataAtd'
 
 
 
 export default function HocPhi (props) {
+   const {items1,items2,items3, items4} = props
+   const [selectedValue, setSelectedValue] = React.useState();
+   const [items, setItems] = React.useState(items1)
+    
+    
+    const handleOnValueChange =(itemValue, itemIndex) =>{
+      setSelectedValue(itemValue);
+      if(itemIndex==0){
+        setItems(items1);
+      }
+      else if(itemIndex==1){
+        setItems(items2)
+      }
+      else if(itemIndex==2){
+        setItems(items3)
+      }
+      else if(itemIndex==3){
+        setItems(items4)
+      }
+    }
 
-    const {items} = props
-    const [selectedValue, setSelectedValue] = React.useState();
+    
 
-  
- 
-
-
-  
+   
     return (
       <>
+      
         <Provider>
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ fontWeight: 'bold', marginLeft: 5, marginTop: 5 }}>
@@ -28,17 +45,17 @@ export default function HocPhi (props) {
               selectedValue={selectedValue}
               style={{ marginLeft: 'auto', height: 30, width: 225, borderWidth: 0, backgroundColor: 'transparent' }}
               itemStyle={{}}
-              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+              onValueChange={handleOnValueChange}
             >
               {
-                items.name.map(item => (<Picker.Item label={item} value={item} />))
+                DataAtd.map(item => (<Picker.Item label={item} value={item} />))
                 
 
               }
 
             </Picker>
 
-          {/* </View>
+          </View>
           <View style={{ marginTop: 30 }}>
             <DataTable>
               <DataTable.Header>
@@ -55,22 +72,22 @@ export default function HocPhi (props) {
 
                 items.map(item => (<>
                   <DataTable.Row>
-                    <DataTable.Cell numeric>{item.name}</DataTable.Cell>
-                    <DataTable.Cell numeric>{item.stc}</DataTable.Cell>
-                    <DataTable.Cell numeric>{item.stc * 330000 + " VND"}</DataTable.Cell>
+                    <DataTable.Cell >{item.id}</DataTable.Cell>
+                    <DataTable.Cell numeric>{item.data.stc}</DataTable.Cell>
+                    <DataTable.Cell numeric>{item.data.stc * 330000 + " VND"}</DataTable.Cell>
                   </DataTable.Row>
 
-                </>)) */}
+                </>))
 
-              {/* }
+              }
               
-            </DataTable> */}
+            </DataTable>
             <View style={{ marginTop: 10, marginLeft: 'auto', marginRight: 5, flexDirection: 'column' }}>
               <Text style={{ color: "#FF0000" }}>
-                Tổng tiền: {DataHP.reduce((a, b) => a + b.stc * 330000, 0)} VND
+                Tổng tiền: {items.reduce((a, b) => a + b.data.stc * 330000, 0)} VND
             </Text>
               <Text style={{ color: "#FF0000" }}>
-                Tình trạng: chưa nộp
+                Tình trạng: Đã nộp
             </Text>
             </View>
 

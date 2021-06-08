@@ -66,17 +66,7 @@ const Setting = ({ navigation }) => {
       />
 
       <View style={styles.menu}>
-        <Card style={styles.card}>
-          <Card.Actions>
-            <Button
-              icon="calendar"
-              mode="text"
-              onPress={() => console.log("Pressed")}
-            >
-              TKB
-            </Button>
-          </Card.Actions>
-        </Card>
+        
         <Card style={styles.card}>
           <Card.Actions>
             <Button
@@ -93,7 +83,7 @@ const Setting = ({ navigation }) => {
             <Button
               icon="calendar-check"
               mode="text"
-              onPress={() => navigation.navigate("KetQua")}
+              onPress={() => navigation.navigate("IndexKetQua")}
             >
               Kết Quả
             </Button>
@@ -104,7 +94,7 @@ const Setting = ({ navigation }) => {
             <Button
               icon="cash-register"
               mode="text"
-              onPress={() => navigation.navigate("HocPhi")}
+              onPress={() => navigation.navigate("IndexHocPhi")}
             >
               Học Phí
             </Button>

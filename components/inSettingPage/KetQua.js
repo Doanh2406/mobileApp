@@ -1,23 +1,29 @@
 import React, { Component, useEffect, useState } from 'react'
 import { Picker, Text, View } from 'react-native';
 import { DataTable, Provider } from 'react-native-paper';
-import { DataAtd, DataKQ } from './DataAtd'
+import {DataAtd} from './DataAtd'
 
 
 
-export function KetQua() {
-
-  const [selectedValue, setSelectedValue] = useState("Học Kỳ 2/ 2021-2022");
-
-  const [data,setData] = useState(DataKQ.id1)
+export function KetQua(props) {
   
-  const handleOnValueChange = (itemValue, itemIndex) =>{ 
-    setSelectedValue(itemValue)
+  const {items1,items2,items3, items4} = props
+  const [selectedValue, setSelectedValue] = React.useState();
+  const [items, setItems] = React.useState(items1)
+  
+  const handleOnValueChange =(itemValue, itemIndex) =>{
+    setSelectedValue(itemValue);
     if(itemIndex==0){
-      setData(DataKQ.id1)
+      setItems(items1);
     }
-    else{
-      setData(DataKQ.id2)
+    else if(itemIndex==1){
+      setItems(items2)
+    }
+    else if(itemIndex==2){
+      setItems(items3)
+    }
+    else if(itemIndex==3){
+      setItems(items4)
     }
   }
   
@@ -57,27 +63,23 @@ export function KetQua() {
               
               <DataTable.Title numeric>G.Kỳ</DataTable.Title>
               <DataTable.Title numeric>C.Kỳ</DataTable.Title>
-              {/* <DataTable.Title numeric>Tb</DataTable.Title> */}
+              <DataTable.Title numeric>Tb</DataTable.Title>
             </DataTable.Header>
             {
 
-              data.map(item => (<>
+              items.map(item => (<>
                 <DataTable.Row>
-                  <DataTable.Cell  >{item.name}</DataTable.Cell>
-                  <DataTable.Cell numeric>{item.dd}</DataTable.Cell>
-                  <DataTable.Cell numeric>{item.gk}</DataTable.Cell>
-                  <DataTable.Cell numeric>{item.cc}</DataTable.Cell>
-                  {/* <DataTable.Cell numeric>{(item.dd+item.gk*2+item.cc*5)/8}</DataTable.Cell> */}
+                  <DataTable.Cell  >{item.id}</DataTable.Cell>
+                  <DataTable.Cell numeric>{item.data.dd}</DataTable.Cell>
+                  <DataTable.Cell numeric>{item.data.gk}</DataTable.Cell>
+                  <DataTable.Cell numeric>{item.data.cc}</DataTable.Cell>
+                  <DataTable.Cell numeric>{(item.data.dd+item.data.gk*2+item.data.cc*5)/8}</DataTable.Cell>
                 </DataTable.Row>
 
               </>))
 
             }
-            {/* <DataTable.Row>
-                <DataTable.Cell numeric>Chuyên đề</DataTable.Cell>  
-                <DataTable.Cell numeric>2</DataTable.Cell>
-                <DataTable.Cell numeric>2</DataTable.Cell>
-              </DataTable.Row> */}
+            
           </DataTable>
          
           

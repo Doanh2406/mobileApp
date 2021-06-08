@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Image, Text, StyleSheet, ScrollView } from 'react-native';
-import { HocPhiRef ,HocPhi2Ref, HocPhi3Ref,HocPhi4Ref} from "../../firebase";
-import HocPhi  from './HocPhi'
+import {KetQuaRef,KetQua2Ref,KetQua3Ref,KetQua4Ref} from "../../firebase";
+import KetQua from "./KetQua"
 
 export default class IndexHocPhi extends Component {
   state = {
@@ -12,7 +12,7 @@ export default class IndexHocPhi extends Component {
   };
   readNewsRef = () => {
     let news = [];
-    HocPhiRef.onSnapshot((querySnapshot) => {
+    KetQuaRef.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         news.push({ id: doc.id, data: doc.data()});
       });
@@ -22,7 +22,7 @@ export default class IndexHocPhi extends Component {
   
   readNews2Ref = () => {
     let news = [];
-    HocPhi2Ref.onSnapshot((querySnapshot) => {
+    KetQua2Ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         news.push({ id: doc.id, data: doc.data()});
       });
@@ -32,7 +32,7 @@ export default class IndexHocPhi extends Component {
   
   readNews3Ref = () => {
     let news = [];
-    HocPhi3Ref.onSnapshot((querySnapshot) => {
+    KetQua3Ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         news.push({ id: doc.id, data: doc.data()});
       });
@@ -42,7 +42,7 @@ export default class IndexHocPhi extends Component {
 
   readNews4Ref = () => {
     let news = [];
-    HocPhi4Ref.onSnapshot((querySnapshot) => {
+    KetQua4Ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         news.push({ id: doc.id, data: doc.data()});
       });
@@ -63,7 +63,7 @@ export default class IndexHocPhi extends Component {
     console.log(this.state.News2)
     return (
       <>
-          <HocPhi  items1={this.state.News1} items2={this.state.News2} items3={this.state.News3} items4={this.state.News4} />     
+          <KetQua  items1={this.state.News1} items2={this.state.News2} items3={this.state.News3} items4={this.state.News4} />     
       </>
     )
   }
