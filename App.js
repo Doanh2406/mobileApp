@@ -14,8 +14,6 @@ import Navbar from "./components/Navbar";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import firebase from "./firebase";
 import AppNavigator from "./components/homePage/AppNavigator";
-import Noti from "./components/pageNoti/Noti";
-import NotiHome from "./components/pageNoti/NotiHome";
 import NewNavigator from "./components/newPage/NewNavigator";
 import NotiNavigation from "./components/pageNoti/NotiNavigation";
 
@@ -102,7 +100,7 @@ export default class App extends Component {
           <Navbar />
         </View>
         {this.renderContent()}
-        <StatusBar style="auto" />
+        {/* <StatusBar style="auto" /> */}
       </View>
     );
   }

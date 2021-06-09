@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Text, Searchbar, Button, Card, Divider } from "react-native-paper";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, Alert } from "react-native";
 import Avar from "../../assets/avar.png";
+import firebase from "../../firebase";
 //test
 
 const Setting = ({ navigation }) => {
@@ -49,7 +50,14 @@ const Setting = ({ navigation }) => {
           <Button
             icon="logout"
             mode="text"
-            onPress={() => console.log("Pressed")}
+            onPress={() =>
+              firebase
+                .auth()
+                .signOut()
+                .catch((error) => {
+                  Alert.alert(error.message);
+                })
+            }
           >
             Đăng Xuất
           </Button>
