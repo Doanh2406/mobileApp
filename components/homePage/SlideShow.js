@@ -56,6 +56,7 @@ export default class SlideShow extends Component {
     return (
       <>
         <Slideshow
+         
           dataSource={this.state.dataSource}
           height={200}
           position={this.state.position}

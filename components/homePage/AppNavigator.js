@@ -8,7 +8,7 @@ import DKTC from '../inSettingPage/DKTC'
 import IndexHocPhi from '../inSettingPage/IndexHocPhi'
 import IndexKetQua from "../inSettingPage/IndexKetQua";
 const { Navigator, Screen } = createStackNavigator();
-
+import LiLish from '../inSettingPage/LiLish'
 const HomeNavigator = () => (
   <Navigator headerMode="none">
 
@@ -18,6 +18,7 @@ const HomeNavigator = () => (
     <Screen name="DKTC" component={DKTC} />
     <Screen name="IndexHocPhi" component={IndexHocPhi}/>
     <Screen name="IndexKetQua" component={IndexKetQua}/>
+    <Screen name="LiLish" component={LiLish}/>
   </Navigator>
 );
 

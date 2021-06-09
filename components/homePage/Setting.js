@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Text, Searchbar, Button, Card, Divider } from "react-native-paper";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image ,TouchableOpacity} from "react-native";
 import Avar from "../../assets/avar.png";
 //test
+
 
 const Setting = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -41,9 +42,13 @@ const Setting = ({ navigation }) => {
           <Text style={{ fontSize: 13, fontWeight: "bold", marginTop: 10 }}>
             Nguyễn Bảo Minh Doanh
           </Text>
-          <Text style={{ marginTop: 15, fontSize: 10 }}>
-            Xem lí lịch sinh viên
-          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("LiLish")}>
+            <Text style={{ marginTop: 15, fontSize: 10 }}>
+              Xem lí lịch sinh viên
+            </Text>
+
+          </TouchableOpacity>
+         
         </View>
         <View style={{ marginTop: 20, marginLeft: "auto" }}>
           <Button
