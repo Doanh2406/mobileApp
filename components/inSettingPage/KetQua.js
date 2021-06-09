@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
 import { Picker, Text, View } from 'react-native';
-import { DataTable, Provider } from 'react-native-paper';
+import { DataTable, Modal, Portal, Button, Provider } from 'react-native-paper';
 import {DataAtd} from './DataAtd'
 
 
@@ -26,11 +26,35 @@ export function KetQua(props) {
       setItems(items4)
     }
   }
-  
+  const [visible, setVisible] = React.useState(true);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {backgroundColor: 'white', padding: 20};
 
   return (
     <>
       <Provider>
+
+      <Portal>
+        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+          <Text style={{ fontWeight: 'bold', marginLeft: 5, marginTop: 5, fontSize:12}}>Vui lòng chọn học kỳ</Text>
+          <Picker
+            mode="dropdown"
+            selectedValue={selectedValue}
+            style={{ marginLeft: 'auto', height: 30, width: 225, borderWidth: 0, backgroundColor: 'transparent',marginTop:20 }}
+            itemStyle={{}}
+            onValueChange={handleOnValueChange}
+          >
+            {
+              DataAtd.map(item => (<Picker.Item label={item} value={item} />))
+
+            }
+
+          </Picker>
+
+        </Modal>
+      </Portal>
+
         <View style={{ flexDirection: 'row' }}>
           <Text style={{ fontWeight: 'bold', marginLeft: 5, marginTop: 5 }}>
             Kết Quả
