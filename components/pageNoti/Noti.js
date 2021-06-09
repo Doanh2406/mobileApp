@@ -7,6 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function Noti(props){
     // const [News, setNews] = useState([title: ])
+
     const {item} = props;
         return (
             <TouchableOpacity activeOpacity={0.8}>
