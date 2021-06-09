@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
+    // justifyContent: "center",
+    marginTop:30,
     height: "100%",
     width: "100%",
   },

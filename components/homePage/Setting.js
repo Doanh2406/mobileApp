@@ -1,10 +1,6 @@
 import * as React from "react";
 import { Text, Searchbar, Button, Card, Divider } from "react-native-paper";
-<<<<<<< HEAD
-import { StyleSheet, View, Image, Alert } from "react-native";
-=======
 import { StyleSheet, View, Image ,TouchableOpacity} from "react-native";
->>>>>>> 1c43cb5b6557e5e6a8e9d00408c90e2aea6b628e
 import Avar from "../../assets/avar.png";
 import firebase from "../../firebase";
 //test

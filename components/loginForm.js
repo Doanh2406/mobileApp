@@ -25,15 +25,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginTop:50
   },
-  // logoContainer: {
-  //     flex :1,
-  //     alignItems: 'center',
-  //     justifyContent : 'center',
-  //     paddingBottom: 100
-  // },
+ 
   emailAndPassContainer: {
     flex: 1,
+    flexDirection:'row',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     color: "black",
